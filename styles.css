@@ -1,6 +1,13 @@
 /* /*  your css code here. If applicable */
 
-
+.main-container{
+	border: 2px solid black;
+	width:90%;
+	height: 50%;
+	align-items:center;
+	align-content: center;
+	border-radius: 10px
+}
 
 body {
 display: flex;
@@ -14,6 +21,7 @@ font-family: Arial, sans-serif;
 	display: flex;
 justify-content: space-between;
 width: 100%;
+	padding: 10px;
         }
 .code {
 width: 115px;
