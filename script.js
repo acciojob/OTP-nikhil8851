@@ -13,3 +13,11 @@
                 }
             });
         });
+
+
+
+cy.get('#code-1').should('be.visible').focus().type(5);
+
+
+
+cy.get('.code-container').find('input.code').eq(5).should('be.visible').type('{backspace}');
