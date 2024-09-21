@@ -1,23 +1,16 @@
-//your JS code here. If required.
- function moveToNext(current, nextFieldID) {
-            if (current.value.length >= 1) {
-                document.getElementById(nextFieldID).focus();
-            }
+
+const codes = document.querySelectorAll('.code');
+
+codes.forEach((code, index) => {
+    code.addEventListener('keydown', (e) => {
+        if (e.key === 'Backspace' && index !== 0) {
+            codes[index - 1].focus();
         }
-        document.querySelectorAll('.code').forEach((input, index, inputs) => {
-            input.addEventListener('keydown', (e) => {
-                if (e.key === 'Backspace' && input.value === '') {
-                    if (index > 0) {
-                        inputs[index - 1].focus();
-                    }
-                }
-            });
-        });
+    });
 
-
-
-cy.get('#code-1').should('be.visible').focus().type(5);
-
-
-
-cy.get('.code-container').find('input.code').eq(5).should('be.visible').type('{backspace}');
+    code.addEventListener('input', () => {
+        if (code.value.length === 1 && index < codes.length - 1) {
+            codes[index + 1].focus();
+        }
+    });
+});
